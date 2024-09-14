@@ -1,0 +1,23 @@
+name: "CICommon License Check"
+description: |
+  A composite action for verifying that the license has been generated
+author: aeydr
+
+branding:
+  icon: arrow-up-circle
+  color: red
+
+inputs:
+  license:
+    description: |
+      The message to echo      
+    required: true
+    default: "Hello, World!"
+
+runs:
+  using: "composite"
+  steps:
+    - name: Execute
+      shell: bash
+      id: exec
+      run: ${{github.action_path}}/execute.sh "${{ inputs.message }}"
